@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "288385917806",
+    "firebase_url": "https://k-tech-app.firebaseio.com",
+    "project_id": "k-tech-app",
+    "storage_bucket": "k-tech-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:288385917806:android:1d427a9600840e9d51177f",
+        "android_client_info": {
+          "package_name": "com.ktech.k_tech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "288385917806-kv49k806s32qo28r1e3s7qkmr8kvvnje.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlYO_lxpNpmr66aY5zdYcDcHeMhwV9eF0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "288385917806-kv49k806s32qo28r1e3s7qkmr8kvvnje.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
