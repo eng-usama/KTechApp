@@ -2,8 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:k_tech/Controllers/HomeControllers/Subjects.dart';
 import 'package:k_tech/Models/UI-Models.dart';
-import 'package:k_tech/NetworkingHttp/UsersHttp/UserAuth.dart';
+import 'package:k_tech/NetworkingHttp/UserAuth.dart';
 
 class Subject {
   final String subjectName;
@@ -122,16 +123,17 @@ class _HomePage extends State<HomePage> {
                                             onTap: () async {
 //                                              Navigator.push(context,MaterialPageRoute(builder: (context) => Shop(shopId: snapshot.data[index].shopId,)) );
                                             print(index);
-                                            dynamic result = await _auth.signInAnon();
-                                            if(result == null)
-                                              {
-                                                print('Authh failed');
-                                              }
-                                            else
-                                              {
-                                                print('Authh success');
-                                                print(result.uid);
-                                              }
+//                                            dynamic result = await _auth.signInAnon();
+//                                            if(result == null)
+//                                              {
+//                                                print('Authh failed');
+//                                              }
+//                                            else
+//                                              {
+//                                                print('Authh success');
+//                                                print(result.uid);
+//                                              }
+                                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => SubjectsContent()));
                                             },
                                             child: ShopItem(shopName: _subjects[index].subjectName,shopPhoto: _subjects[index].subjectImage,),
                                           ));

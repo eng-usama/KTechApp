@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:k_tech/Controllers/Calendar/CalendarView.dart';
 import 'package:k_tech/Controllers/HomeControllers/HomePage.dart';
-import 'package:k_tech/NetworkingHttp/UsersHttp/UserAuth.dart';
+import 'package:k_tech/NetworkingHttp/UserAuth.dart';
 import 'package:provider/provider.dart';
 
 import '../Wrapper.dart';
@@ -28,6 +29,7 @@ class _MainPageState extends State<MainPage> {
           length: 2,
           child: Scaffold(
               bottomNavigationBar: BottomNavigationBar(
+                selectedIconTheme: IconThemeData(color: Colors.cyan),
                 onTap: onTabTapped,
                 currentIndex: _currentIndex,
                 // this will be set when a new tab is tapped
@@ -50,6 +52,15 @@ class _MainPageState extends State<MainPage> {
                   "K-tech",
                   style: TextStyle(color: Colors.white),
                 ),
+                actions: <Widget>[
+                  IconButton(
+                    icon: Icon(Icons.calendar_today,color: Colors.white,),
+                    tooltip: 'Academic Calendar',
+                    onPressed: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => CalendarView()));
+                    },
+                  ),
+                ],
               ),
               body: _children[_currentIndex]),
         ),

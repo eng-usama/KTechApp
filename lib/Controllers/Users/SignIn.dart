@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:k_tech/NetworkingHttp/UsersHttp/UserAuth.dart';
+import 'package:k_tech/NetworkingHttp/UserAuth.dart';
 import 'package:k_tech/Shared/constants.dart';
 import 'package:k_tech/Shared/loading.dart';
 
@@ -83,7 +83,7 @@ class _SignInState extends State<SignIn> {
                     Container(alignment: Alignment.center,
                       child: FlatButton.icon(
                         icon: Icon(Icons.person,color: Colors.white,),
-                        label: Text('Don\'t have an account ?' ,style: TextStyle(color: Colors.white),),
+                        label: Text('Don\'t have an account ?' ,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
                         onPressed: () => widget.toggleView(),
                       ),),
                   ],

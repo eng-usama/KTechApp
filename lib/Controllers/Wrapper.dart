@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:k_tech/NetworkingHttp/UsersHttp/UserAuth.dart';
+import 'package:k_tech/NetworkingHttp/UserAuth.dart';
 import 'package:k_tech/Shared/loading.dart';
 import 'package:provider/provider.dart';
 
