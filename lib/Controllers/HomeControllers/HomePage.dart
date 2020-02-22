@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:k_tech/Controllers/HomeControllers/Subjects.dart';
@@ -23,7 +21,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePage extends State<HomePage> {
 
-  final AuthService _auth = AuthService();
+//  final AuthService _auth = AuthService();
 
   List<Subject> _subjects = [];
 /*

@@ -43,6 +43,10 @@ class Profile extends StatelessWidget {
                   ),
                   Column(
                     children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Image.asset('assets/logo.png',),
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
