@@ -2,15 +2,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:k_tech/Controllers/HomeControllers/Subjects.dart';
 import 'package:k_tech/Models/UI-Models.dart';
+import 'package:k_tech/NetworkingHttp/DatabaseHttp.dart';
 import 'package:k_tech/NetworkingHttp/UserAuth.dart';
 
 class Subject {
   final String subjectName;
   final String subjectImage;
-
-  Subject(this.subjectName, this.subjectImage);
+  final DateTime startDate;
+  final DateTime endDate;
+  Subject(this.subjectName, this.subjectImage, this.startDate, this.endDate);
 
 }
+
+List<Subject> subjectsGlobal = [];
+
 class HomePage extends StatefulWidget {
 //  final Color color;
 
@@ -23,7 +28,8 @@ class _HomePage extends State<HomePage> {
 
 //  final AuthService _auth = AuthService();
 
-  List<Subject> _subjects = [];
+
+
 /*
 - assets/assembly.jpeg
     - assets/comProgram.jpeg
@@ -35,50 +41,13 @@ class _HomePage extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _subjects = [Subject('Assembly','assets/assembly.jpeg'),Subject('Programming','assets/comProgram.jpeg'),Subject('how computer works','assets/howcompworks.jpeg'),Subject('digital systems','assets/digitalSystems.jpeg')];
+    subjectsGlobal = [Subject('Internet Marketing\nBSM233','assets/internetMarketing.jpg',DateTime(2020, 9, 7, 9 ,00),DateTime(2020, 9, 7, 9 ,50)),Subject('Statistics for Decision\nMaking\nMATH208','assets/StatisticsForDecitionMaking.jpg',DateTime(2020, 9, 10, 10,30),DateTime(2020, 9, 10, 11,45)),Subject('Advertising and Public\nRelations\nBSM280','assets/AdvertisingandPublicRelations.jpg', DateTime(2020, 9, 20, 12 ,00), DateTime(2020, 9, 20, 13 ,15)),Subject('Market Research\nMethods\nBSM285','assets/MarketResearchMethods.jpg',DateTime(2020, 9, 30,13 ,00),DateTime(2020, 9, 30,13 ,50))];
   }
 
   @override
   Widget build(BuildContext context) {
-//    GridView.count(
-//      shrinkWrap: true,
-//      // Create a grid with 2 columns. If you change the scrollDirection to
-//      // horizontal, this produces 2 rows.
-//      crossAxisCount: 4,
-//      // Generate 100 widgets that display their index in the List.
-//      children: List.generate(_more == false ? 8 : topItems.length, (index) {
-//        return Center(
-//            child: GestureDetector(
-//                child: topItems[index],
-//                onTap: () {
-//                  print('index : $index');
-//                  if (index == topItems.length - 1) {
-//                    setState(() {
-//                      _more = !_more;
-//                      if(_more == true)
-//                      {
-//                        topItems.insert(7, TopItems(
-//                          color: Colors.blueAccent,
-//                          icon: Icons.add_shopping_cart,
-//                        ),);
-//                        topItems.insert(7, TopItems(
-//                          color: Colors.blueAccent,
-//                          icon: Icons.add_a_photo,
-//                        ),);
-//                      }
-//                      else
-//                      {
-//
-//                        topItems.removeAt(7);
-//                        topItems.removeAt(7);
-//                      }
-//                    });
-//                  }
-//                }));
-//      }),
-//    );
     return Container(
-      color: Colors.white10,
+      color: Colors.grey[200],
       child: CustomScrollView(
         slivers: <Widget>[
           SliverToBoxAdapter(
@@ -97,6 +66,7 @@ class _HomePage extends State<HomePage> {
                   Container(
                       width: MediaQuery.of(context).size.width,
                       child: Card(
+                        color: Colors.grey[200],
                           elevation: 5,
                           semanticContainer: true,
                           clipBehavior: Clip.antiAlias,
@@ -115,34 +85,22 @@ class _HomePage extends State<HomePage> {
                                     // horizontal, this produces 2 rows.
                                     crossAxisCount: 2,
                                     // Generate 100 widgets that display their index in the List.
-                                    children: List.generate(_subjects.length, (index) {
+                                    children: List.generate(subjectsGlobal.length, (index) {
                                       return Center(
                                           child: GestureDetector(
                                             onTap: () async {
-//                                              Navigator.push(context,MaterialPageRoute(builder: (context) => Shop(shopId: snapshot.data[index].shopId,)) );
                                             print(index);
-//                                            dynamic result = await _auth.signInAnon();
-//                                            if(result == null)
-//                                              {
-//                                                print('Authh failed');
-//                                              }
-//                                            else
-//                                              {
-//                                                print('Authh success');
-//                                                print(result.uid);
-//                                              }
-                                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => SubjectsContent()));
+//                                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => SubjectsContent()));
+
                                             },
-                                            child: ShopItem(shopName: _subjects[index].subjectName,shopPhoto: _subjects[index].subjectImage,),
+                                            child: SubjectItem(subjectName: subjectsGlobal[index].subjectName,subjectPhoto: subjectsGlobal[index].subjectImage,),
                                           ));
                                     }),
                                   ),
 
                                 ),
-                                Container(
-                                  padding: EdgeInsets.fromLTRB(10, 20, 10, 20),
-                                  alignment: Alignment.topLeft,
-                                  child: Text(''),
+                                SizedBox(
+                                  height: 50,
                                 ),]
                           )))
 

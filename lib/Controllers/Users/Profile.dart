@@ -10,9 +10,12 @@ class Profile extends StatelessWidget {
   final AuthService _auth = AuthService();
 
 
+
+
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
+    final DatabaseService _databaseService = DatabaseService(uid: user.uid);
     return Scaffold(
       backgroundColor: Colors.brown[50],
 //        appBar: AppBar(
@@ -34,8 +37,8 @@ class Profile extends StatelessWidget {
                   Container(
                     alignment: Alignment.topRight,
                     child: FlatButton.icon(
-                      icon: Icon(Icons.person),
-                      label: Text('logout'),
+                      icon: Icon(Icons.person,color: Colors.deepPurple[900]),
+                      label: Text('logout',style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,color: Colors.deepPurple[900]),),
                       onPressed: () async {
                         await _auth.signOut();
                       },
@@ -50,11 +53,37 @@ class Profile extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text('Welcome ',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.cyan),),
-                          Container(child: Text(snapshot.data.name,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black45),),),
+                          Text('Welcome ',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.deepPurple[900]),),
+                          Container(child: Text(snapshot.data.name,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.cyan[800]),),),
                         ],
                       ),
+                      Container(
+                        padding: EdgeInsets.all(20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            Text('Email : ',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.deepPurple[900]),),
+                            Container(child: Text(snapshot.data.email,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.cyan[800]),),),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            Text('Mobile : ',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.deepPurple[900]),),
+                            Container(child: Text(snapshot.data.mobile,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.cyan[800]),),),
+                          ],
+                        ),
+                      ),
 
+//                      FlatButton(
+//                        child: Text(snapshot.data.subjects[0]),
+//                        onPressed: (){
+//                          _databaseService.updateUserData(snapshot.data.name, snapshot.data.email, snapshot.data.mobile, ["subject 2"]);
+//                        },
+//                      )
                     ],
                   )
                 ],

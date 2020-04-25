@@ -29,6 +29,7 @@ class _MainPageState extends State<MainPage> {
           length: 2,
           child: Scaffold(
               bottomNavigationBar: BottomNavigationBar(
+                backgroundColor: Colors.grey[200],
                 selectedIconTheme: IconThemeData(color: Colors.cyan),
                 onTap: onTabTapped,
                 currentIndex: _currentIndex,
